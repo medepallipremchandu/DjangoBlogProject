@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'personal_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'mydb',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST':'localhost',
-#         'PORT':'3306',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'b4dB4G22Dcaha3ebe6cBEHB2HCefbEdc',
+        'HOST':'roundhouse.proxy.rlwy.net',
+        'PORT':'16342',
+    }
+}
 
 
 # Password validation
