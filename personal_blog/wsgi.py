@@ -15,3 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personal_blog.settings')
 
 application = get_wsgi_application()
 
+app = application
