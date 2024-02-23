@@ -77,16 +77,26 @@ WSGI_APPLICATION = 'personal_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'b4dB4G22Dcaha3ebe6cBEHB2HCefbEdc',
-        'HOST':'roundhouse.proxy.rlwy.net',
-        'PORT':'16342',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mydb',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#     }
+# }
+
+
+
+# Add or modify these email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Example: 'smtp.gmail.com'
+EMAIL_PORT = 587  # Example: 587 for TLS
+EMAIL_USE_TLS = True  # Set to True if using TLS
+EMAIL_HOST_USER = '2000031715cse@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'fktz ejdl qdcc sczz'  # Your email password or app password
 
 
 # Password validation
@@ -132,3 +142,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

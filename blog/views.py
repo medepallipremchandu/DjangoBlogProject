@@ -1,6 +1,36 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.shortcuts import render
+from .forms import ContactForm
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            subject = f"Message from {name}"
+            body = f"Sender's email: {email}\n\nMessage:\n{message}"
+            
+            # Create and send the email
+            email_message = EmailMessage(
+                subject=subject,
+                body=body,
+                from_email=email,  # Sender's email address from the form
+                to=['2000031715cse@gmail.com'],  # Replace with your recipient's email address
+                reply_to=[email],  # Set the reply-to address to sender's email
+            )
+            email_message.send()
+            
+            return render(request, 'blog/success.html')  # Display a success page
+    else:
+        form = ContactForm()
+    return render(request, 'blog/contact.html', {'form': form})
 
 from .models import Post, Comment, Category
 from .forms import CommentForm
@@ -58,3 +88,4 @@ def blog_detail(request, pk):
     }
 
     return render(request, "blog/detail.html", context)
+
